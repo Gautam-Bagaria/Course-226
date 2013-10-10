@@ -12,13 +12,13 @@ LINES TERMINATED BY '\n'
 select model, speed as 'gigahertz', hd as 'gigabytes' from pc where price < 1000;
 # if i export the result from the workbench ide then the column names appear in the cvs file. 
 #3.1.c
-select maker from product, laptop where product.model = laptop.model;
+select distinct maker from product, laptop where product.model = laptop.model;
 #3.1.d
 select model, ram, screen from laptop where price > 1000;
-#3.1.e
+#3.1.e 
 select * from printer where color = true;
 #3.1.f
-select model, hd from pc where speed = 3.2 and price < 2000 ;
+select model, hd from pc where speed like 3.2 and price < 2000 ;
 
 #3.2.a
 select maker, speed from product natural join laptop where hd >= 30;
@@ -32,7 +32,7 @@ union
 (select Product.model, price from Product, Printer where Product.model = Printer.model 
 and maker = 'B');
 #3.2.c
-select maker from product where ctype = 'laptop' and maker not in (select maker from product where ctype ='pc'); 
+select distinct maker from product where ctype = 'laptop' and maker not in (select maker from product where ctype ='pc'); 
 #3.2.d
 select hd from pc group by hd having (count(hd)>1) ;
 #3.2.e
@@ -47,7 +47,7 @@ natural join product where speed>=3.0 group by maker having count(m.model) >= 2;
 #3.3.a
 select distinct product.maker from product natural join pc where speed>=3.0;
 #3.3.b
-select price from printer where price>= all(select price from printer);
+select * from printer where price>= all(select price from printer);
 #3.3.c
 select model from laptop where speed < all(select speed from pc);
 #3.3.d
@@ -115,7 +115,7 @@ delete from pc where hd<100;
 #3.5.d
 
 #3.5.e
-update product set maker = 'B' where maker = 'A';
+update product set maker = 'A' where maker = 'B';
 
 #3.5.f
 update pc set ram = 2*ram, hd=hd+60;
