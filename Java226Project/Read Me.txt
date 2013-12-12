@@ -1,0 +1,9 @@
+For this project to run you will need to install wamp.
+Import the classic modles database into the wamp.
+Have eclispe for java and jre on you computer.
+
+For the 1st part just run the project.
+For thr 2nd part comment out g.gui_main located the the ProjectMain.java just under the void main syntax
+Then uncomment g.gui located near the very end.
+
+Most of the code is for analysis rather than queries. Some basic queries can be found in the projectQueies.java file and some of them in ProjectMain
