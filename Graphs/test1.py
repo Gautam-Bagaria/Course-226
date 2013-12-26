@@ -5,12 +5,12 @@ import numpy as np
 import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
 
-eachStock ='test1',''
+eachData ='test1',''
 
-def graphData(stock):
+def graphData(data):
     try:
-        stockFile = stock+'.txt'
-        pro, price = np.loadtxt(stockFile,delimiter =',',unpack=True,converters={})
+        dataFile = data+'.txt'
+        pro, price = np.loadtxt(dataFile,delimiter =',',unpack=True,converters={})
         fig = plt.figure()
         ax1 = plt.subplot(1,1,1)
         
@@ -25,6 +25,6 @@ def graphData(stock):
     except Exception as e:
         print ('failed', str(e))
 
-for stock in eachStock:
-    graphData(stock)
+for data in eachData:
+    graphData(data)
     time.sleep(555)
